@@ -25,7 +25,7 @@ function objToSql(ob) {
 
 var orm = {
 	
-	selectAll: function(tableInput, hb) {
+	selectAll: function(tableInput, cb) {
 		
 		var queryString = "SELECT * FROM " + tableInput + ";";
 
@@ -36,12 +36,12 @@ var orm = {
 			}
 
 			
-			hb(result);
+			cb(result);
 		});
 	},
 
 	
-	insertOne: function(table, cols, vals, hb) {
+	insertOne: function(table, cols, vals, cb) {
 		
 		var queryString = "INSERT INTO " + table;
 
@@ -59,11 +59,11 @@ var orm = {
 			}
 
 			
-			hb(result);
+			cb(result);
 		});
 	},
 
-	updateOne: function(table, objColVals, condition, hb) {
+	updateOne: function(table, objColVals, condition, cb) {
 		
 		var queryString = "UPDATE " + table;
 
@@ -79,7 +79,7 @@ var orm = {
 			}
 
 			
-			hb(result);
+			cb(result);
 		});
 	}
 };

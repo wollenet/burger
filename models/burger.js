@@ -3,22 +3,22 @@ var orm = require('../config/orm.js');
 
 var burger = {
  
-  selectAll: function(hb) {
+  selectAll: function(cb) {
     orm.selectAll('burgers', function(res) {
-      hb(res);
+      cb(res);
     });
   },
 
-  insertOne: function(cols, vals, hb) {
+  insertOne: function(cols, vals, cb) {
     orm.insertOne('burgers', cols, vals, function(res) {
-      hb(res);
+      cb(res);
     });
   },
 
  
-  updateOne: function(objColVals, condition, hb) {
+  updateOne: function(objColVals, condition, cb) {
     orm.updateOne('burgers', objColVals, condition, function(res) {
-      hb(res);
+      cb(res);
     });
   }
 };
